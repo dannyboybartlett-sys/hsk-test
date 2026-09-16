@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import Home from './components/home/Home';
 import LevelSelect from './components/level-select/LevelSelect';
 import GamePage from './components/gamePage/GamePage';
@@ -36,6 +36,14 @@ function AppRouter() {
 
   if (gameId) {
     return <GamePage gameId={gameId} level={level} onHome={handleHome} />;
+  }
+
+  if (pathname === '/hsk4/test') {
+    return <TestMode level="4" onHome={handleHome} />;
+  }
+
+  if (pathname === '/hsk3/test') {
+    return <TestMode level="3" onHome={handleHome} />;
   }
 
   if (pathname === '/hsk4') {
