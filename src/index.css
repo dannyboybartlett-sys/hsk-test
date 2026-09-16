@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #dc2626;
+    --color-accent-gold: #f59e0b;
+    --color-accent-teal: #0d9488;
+    --color-ink: #0d0f12;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f9fa;
+    color: #0d0f12;
+    min-height: 100vh;
+  }
+
+  .font-chinese {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-xl
+           hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-ink-800 font-semibold rounded-xl
+           border-2 border-ink-200 hover:border-ink-400 active:scale-95 transition-all duration-150;
+  }
+
+  .btn-card {
+    @apply flex flex-col items-center justify-center gap-4 p-8 bg-white rounded-2xl border-2 border-ink-100
+           hover:border-red-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-200 cursor-pointer;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-ink-100 shadow-sm;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-ink-100 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-red-500 rounded-full transition-all duration-300 ease-out;
+  }
+
+  .option-btn {
+    @apply w-full text-left px-5 py-4 rounded-xl border-2 border-ink-200
+           hover:border-red-400 hover:bg-red-50 active:scale-[0.98] transition-all duration-150
+           cursor-pointer font-medium text-ink-800;
+  }
+
+  .option-btn.correct {
+    @apply border-emerald-500 bg-emerald-50 text-emerald-700;
+  }
+
+  .option-btn.wrong {
+    @apply border-red-500 bg-red-50 text-red-700;
+  }
+
+  .option-btn.disabled {
+    @apply pointer-events-none opacity-60;
+  }
+
+  .pinyin {
+    @apply text-ink-500 font-medium tracking-wide;
+  }
+
+  .chinese-char {
+    @apply font-chinese text-5xl font-bold text-ink-900;
+  }
+
+  .stat-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium;
+  }
+}
