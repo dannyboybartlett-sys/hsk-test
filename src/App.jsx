@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
+import { HashRouter, useNavigate, useLocation } from 'react-router-dom';
 import Home from './components/home/Home';
 import LevelSelect from './components/level-select/LevelSelect';
 import GamePage from './components/gamePage/GamePage';
@@ -60,9 +60,9 @@ function AppRouter() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter basename="/hsk-test">
       <ScrollToTop />
       <AppRouter />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
