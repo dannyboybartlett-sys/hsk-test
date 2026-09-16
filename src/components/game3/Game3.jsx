@@ -100,8 +100,11 @@ export default function Game3({ onHome, hskLevel = '3' }) {
     );
   }
 
-  // Render sentence with blank highlighted
+  // Render sentence with blank(s) highlighted
+  // Handle sentences with 1 or 2 blanks (split on _____)
   const parts = q.sentence.split('_____');
+  // Count how many blanks this sentence has
+  const blankCount = parts.length - 1;
 
   return (
     <div className="flex flex-col gap-6 max-w-md mx-auto py-8 px-4">
@@ -131,11 +134,16 @@ export default function Game3({ onHome, hskLevel = '3' }) {
       <div className="card p-8 bg-gradient-to-br from-white to-ink-50">
         <div className="text-sm text-ink-400 mb-4">Fill in the blank:</div>
         <div className="text-xl leading-relaxed text-ink-800 font-medium">
-          {parts[0]}
-          <span className="text-red-400 font-bold tracking-widest mx-1 inline-block align-middle">
-            {'_'.repeat(Math.max(q.options[q.answer].length * 2, 4))}
-          </span>
-          {parts[1]}
+          {parts.map((part, i) => (
+            <span key={i}>
+              {part}
+              {i < blankCount && (
+                <span className="text-red-400 font-bold tracking-widest mx-1 inline-block align-middle">
+                  {'_'.repeat(6)}
+                </span>
+              )}
+            </span>
+          ))}
         </div>
       </div>
 
