@@ -60,7 +60,7 @@ function AppRouter() {
 
 export default function App() {
   return (
-    <HashRouter basename="/hsk-test">
+    <HashRouter>
       <ScrollToTop />
       <AppRouter />
     </HashRouter>
